@@ -1,5 +1,8 @@
 module Asana
   class Resource < ActiveResource::Base
+
+    headers['Bearer'] = self.bearer_token if self.bearer_token
+    
     class << self
 
       def check_prefix_options(options)
