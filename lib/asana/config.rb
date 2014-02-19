@@ -8,7 +8,8 @@ module Asana
     DEFAULT_ENDPOINT = "https://app.asana.com/api/#{API_VERSION}/"
     USER_AGENT       = "Asana Ruby Gem #{Asana::VERSION}"
 
-    attr_accessor :api_key
+    attr_accessor :api_key       # used when authenticating using an api key
+    attr_accessor :bearer_token  # used when authenticating using an oauth2 token
 
     def configure
       yield self
