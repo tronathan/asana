@@ -11,6 +11,10 @@ module Asana
     attr_accessor :api_key       # used when authenticating using an api key
     attr_accessor :bearer_token  # used when authenticating using an oauth2 token
 
+    def bearer_token token
+      Resource.headers['Authorization'] = "Bearer #{self.parent.bearer_token}"
+    end
+    
     def configure
       yield self
       Resource.site      = DEFAULT_ENDPOINT
