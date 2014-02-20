@@ -3,7 +3,7 @@ require 'asana/version'
 
 module Asana
 
-  def self.bearer_token token
+  def self.set_bearer_token token
     Resource.headers['Authorization'] = "Bearer #{token}"
   end
     
