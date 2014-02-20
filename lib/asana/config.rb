@@ -2,6 +2,11 @@ require 'asana/resource'
 require 'asana/version'
 
 module Asana
+
+  def bearer_token token
+    Resource.headers['Authorization'] = "Bearer #{token}"
+  end
+    
   module Config
 
     API_VERSION      = '1.0'
@@ -9,10 +14,6 @@ module Asana
     USER_AGENT       = "Asana Ruby Gem #{Asana::VERSION}"
 
     attr_accessor :api_key       # used when authenticating using an api key
-
-    def bearer_token token
-      Resource.headers['Authorization'] = "Bearer #{token}"
-    end
     
     def configure
       yield self
