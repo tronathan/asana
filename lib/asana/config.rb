@@ -9,10 +9,9 @@ module Asana
     USER_AGENT       = "Asana Ruby Gem #{Asana::VERSION}"
 
     attr_accessor :api_key       # used when authenticating using an api key
-    attr_accessor :bearer_token  # used when authenticating using an oauth2 token
 
     def bearer_token token
-      Resource.headers['Authorization'] = "Bearer #{self.parent.bearer_token}"
+      Resource.headers['Authorization'] = "Bearer #{token}"
     end
     
     def configure
