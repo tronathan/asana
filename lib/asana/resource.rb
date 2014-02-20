@@ -1,7 +1,7 @@
 module Asana
   class Resource < ActiveResource::Base
 
-    # headers['Bearer'] = self.parent.bearer_token if self.parent.bearer_token
+    headers['Authorization'] = "Bearer #{self.parent.bearer_token}" if self.parent.bearer_token
     
     class << self
 
